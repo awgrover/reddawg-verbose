@@ -1,0 +1,21 @@
+#!/usr/bin/env perl
+# --- < words.txt > words.txt.js
+use strict; use warnings; no warnings 'uninitialized'; use 5.010; no if ($^V ge v5.18.0), warnings => 'experimental::smartmatch';
+
+# each line is: (the, 6.510891, 0),
+# (word, %, rank)
+
+say "var words = {";
+while (<>) {
+    chomp;
+    # whack the ();
+    s/^\(//;
+    s/\).//;
+    my ($word, $percent, $rank) = split(', ');
+    die "Not expected at $. : $_" if !$word;
+
+    say "  \"$word\" : ",($rank+1),",";
+    }
+say "  };";
+say STDERR "Lines $.";
+

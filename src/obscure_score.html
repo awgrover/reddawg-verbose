@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="utf-8"> 
+        <script>//<!CDATA[
+            // ==WORDS== 
+            var words = { "the" : 0 }; // list of words will go here
+            // --WORDS--
+
+            function scoreit(elem) {
+                var the_text = document.getElementById('intext').value;
+                var phrase_words = the_text.split(/[,.:-; ]+/).filter( function(str) { return str != ''} ).map(function(str) {return str.toLowerCase()});
+                console.log(phrase_words);
+                var bad = [];
+                var score = phrase_words.reduce(function(phrase_sum, aword) { 
+                    console.log(aword,words[aword]);
+                    if ( ! words[aword] ) {
+                        bad.push( aword );
+                        }
+                    return phrase_sum += words[aword] || 0;
+                    }, 0);
+                 document.getElementById('score').textContent = score;
+                 document.getElementById('unknown').textContent = bad.join(" ");
+                }
+        //]]></script>
+        <title>Reddawg's obscure score</title>
+    </head>
+    <body>
+        <textarea id="intext" rows="5" cols="80" name="intext">Text to score...</textarea>
+        <br>
+        <input type="button" onclick="scoreit(this);" value="Score it">
+        Score: <span id="score"></span>
+        Unknown: <span id="unknown"></span>
+
+    </body>
+
+
+</html>
