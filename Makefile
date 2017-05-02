@@ -1,5 +1,8 @@
 
 
+site/obscure_score.zip : site/obscure_score.html
+	zip $@ $<
+
 site/obscure_score.html : src/obscure_score.html words.txt.js
 	mkdir -p site
 	awk '/==WORDS==/ {system("cat words.txt.js")}; /==WORDS==/,/--WORDS--/ {next}; {print}' $< > $@
@@ -12,7 +15,7 @@ words.txt :
 
 .PHONY : clean
 clean :
-	rm words.txt.js site/obscure_score.html
+	rm words.txt.js site/obscure_score.html site/obscure_score.zip
 
 .PHONY : refetch
 refetch :
