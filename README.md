@@ -4,9 +4,9 @@ Scores text based on how obscure the words are.
 
 # Use
 
-Get the site/obscure_score.html.
+Get the site/obscure_score.zip. unzip it (to a .html).
 
-Open it in a browser.
+Open the html in a browser.
 
 Type some text in.
 
