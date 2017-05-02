@@ -1,4 +1,4 @@
-# Obscore Score
+# Obscure Score
 
 Scores text based on how obscure the words are.
 
