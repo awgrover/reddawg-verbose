@@ -35,3 +35,9 @@ Clean everything except the downloaded words.txt:
 Refetch words.txt
 
 ```make refetch```
+
+# TODO
+
+* use a perfect hash
+* maybe compress/uncompresss the hash data in memory
+* phase 2 is backend etc.
