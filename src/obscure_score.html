@@ -9,7 +9,7 @@
 
             function scoreit(elem) {
                 var the_text = document.getElementById('intext').value;
-                var phrase_words = the_text.split(/[,.:-; ]+/).filter( function(str) { return str != ''} ).map(function(str) {return str.toLowerCase()});
+                var phrase_words = the_text.split(/[,.:; '?!’-]+/).filter( function(str) { return str != ''} ).map(function(str) {return str.toLowerCase()});
                 console.log(phrase_words);
                 var bad = [];
                 var score = phrase_words.reduce(function(phrase_sum, aword) { 
